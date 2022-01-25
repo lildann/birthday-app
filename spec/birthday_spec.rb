@@ -20,6 +20,11 @@ describe Birthday do
 
   it 'should return another message if it is not your birthday' do
     Timecop.freeze(Time.local(2022, 1, 24))
-    expect(birthday.message).to eq("It's not your birthday yet")
+    expect(birthday.message).to eq("It's not your birthday yet.")
+  end
+
+  it 'should calculate the days until your birthday' do
+    Timecop.freeze(Time.local(2022, 1, 26))
+    expect(birthday.days_until).to eq("It's in 364 days!")
   end
 end

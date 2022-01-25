@@ -1,4 +1,5 @@
 class Birthday
+  YEAR = 365
   attr_accessor :date
   def initialize(date)
     @date = date
@@ -9,8 +10,20 @@ class Birthday
   end
 
   def message
-    today? ? "Happy Birthday, you are #{age} today" : "It's not your birthday yet"
+    today? ? "Happy Birthday, you are #{age} today" : "It's not your birthday yet."
   end
+
+  def days_until
+    if today_month == birth_month && today_day < birth_day
+      return "It's in #{birth_day.to_i - today_day.to_i} days!"
+    elsif today_month == birth_month && today_day > birth_day
+      return "It's in #{YEAR - (today_day.to_i - birth_day.to_i)} days!"
+    else 
+      "And it's not in this month anyway!"
+    end
+  end
+
+
 
   private
 
