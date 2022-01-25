@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/birthday'
 
 class App < Sinatra::Base
   configure :development do
@@ -12,6 +13,7 @@ class App < Sinatra::Base
 
   post '/birthday' do
     @name = params[:name]
+    @birthday = Birthday.new(params[:birthday])
     p params
     erb :birthday
   end

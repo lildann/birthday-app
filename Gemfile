@@ -9,3 +9,4 @@ gem 'sinatra-contrib' # library of Sinatra extensions like Reloader
 gem 'rspec'
 gem 'capybara'
 gem 'webrick' # library providing simple HTTP web servers
+gem 'timecop'
