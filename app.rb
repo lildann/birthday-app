@@ -7,7 +7,13 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    'Hello world'
+    erb :index
+  end
+
+  post '/birthday' do
+    @name = params[:name]
+    p params
+    erb :birthday
   end
 
   run! if app_file == $0
